@@ -1,0 +1,547 @@
+@charset "utf-8";
+
+//font
+
+// font-family
+$baseFontFamily: "museo-sans","ヒラギノ角ゴ Pro W3", "HiraKakuPro-W3", "メイリオ", "Meiryo", sans-serif;
+
+@mixin fontsize($size: 24, $base: 10) {
+font-size: $size + px;
+font-size: ($size / $base) * 1rem;
+}
+
+//colors
+$baseColor:#ffd700;
+$baseColor2:#f5f5f5;
+$fontColor:#333;
+$keyColor:#fff;
+
+//base
+html {
+      font-size: 62.5%;
+      font-family: "museo-sans", sans-serif;
+      font-style: normal;
+      font-weight: 100;
+}
+
+body{
+      color: $fontColor;
+      font-family:$baseFontFamily;
+      font-style: normal;
+      font-weight: 100;    
+      line-height:1.6;
+      letter-spacing: 0.1em;
+}
+p{
+      line-height: 3rem;
+      letter-spacing: 0.1em;
+}
+/*****************************************
+//index.html共通
+*****************************************/
+
+#about {
+    display:flex;
+    .container{
+    display: flex;
+    margin: 30% auto;
+    width: 100%;
+    position: relative;
+    .row{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        }
+    }
+}
+#works {
+    display:flex;
+    .container{
+    display: flex;
+    margin: 30% auto;
+    width: 100%;
+    position: relative;
+    .row{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        }
+    }
+}
+#blog {
+    display:flex;
+    .container{
+    display: flex;
+    margin: 30% auto;
+    width: 100%;
+    position: relative;
+    .row{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        }
+    }
+}
+
+//header
+
+#top_header{
+    background-color:$baseColor;
+    background-image: url(../img/top/egg.svg);
+    background-position: center bottom -180px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 50px 0;
+}
+header .grobal-navi{
+    display:flex;
+    justify-content: space-between;
+    .navi-item{
+        list-style:none;
+        a{
+          position: relative;
+          display: inline-block;
+          text-decoration: none;
+          color:$fontColor;
+        &::after {
+              position: absolute;
+              bottom: -4px;
+              left: 0;
+              content: '';
+              width: 100%;
+              height: 2px;
+              background: $fontColor;
+              transform: scale(0, 1);
+              transform-origin: center top;
+              transition: transform .3s;
+            }
+            &:hover{
+                color:lighten($fontColor,30%);
+            }
+            &:hover::after {
+              transform: scale(1, 1);
+            }
+        }
+    }
+}
+.heading-wrapper{
+    margin: 18%;
+    h1{
+    text-align:center;
+    font-size: 5.6rem;
+    line-height: 5rem;
+    }
+}
+
+//btn
+
+.btn-wrapper{
+    margin: 13% 0 auto 32%;
+}
+#about .about-img{
+    display: flex;
+    order:1;
+    h2{
+        color: #ffd700;
+        font-size: 8.0rem;
+        margin: 0;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        text-align: right;
+    }
+}
+
+/**.a-btn {
+    display: inline-block;
+    padding: 0.8em 2.3em;
+    text-decoration: none;
+    color:$fontColor;
+    background:$baseColor;
+    transition: .4s;
+        &:hover {
+        background-color:lighten($baseColor, 20%);
+        color:$fontColor;
+    }
+}
+**/
+@media (max-width: 750px) {
+      #about{
+        margin: 30% auto;
+        padding: 80% 0;
+        .columns-a-text{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        order:2;
+          }
+        .columns-a-img{
+              order:1;
+          
+     }
+    }
+}
+//works
+
+#works{
+    background-color:$baseColor2;
+}
+
+#works .works-img{
+    display: flex;
+    h2{
+        color: #ffd700;
+        font-size: 8.0rem;
+        margin: 0;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        text-align: right;
+        }
+}
+
+.w-img{
+        float:right;
+    }
+.w-btn{
+    display: inline-block;
+    text-decoration: none;
+    background: $baseColor;
+    color: $fontColor;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    overflow: hidden;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #bd6565;
+    transition: .4s;
+        &:hover{
+            color:$fontColor;
+            background-color:lighten($baseColor, 20%);
+        }
+        &:active{
+        -ms-transform: translateY(2px);
+        -webkit-transform: translateY(2px);
+        transform: translateY(2px);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+        border-bottom: none;
+    }
+}
+@media (max-width: 750px) {
+      #works{
+        margin: 30% auto;
+        padding: 90% 0;
+        .columns{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+          }
+     }
+}
+
+//blog
+#blog h2{
+        color: $baseColor;
+        font-size: 8.0rem;
+}
+#blog .b-img{
+    position:relative;
+    margin: 0 0 0 5.5%;
+    img{
+        margin: 120px 0 0 0;
+    }
+.b-btn{
+    display: inline-block;
+    padding: 0.8em 2.3em;
+    text-decoration: none;
+    color:$fontColor;
+    background:$baseColor;
+    transition: .4s;
+    position: absolute;
+    bottom: -5%;
+    right: 10%;
+        &:hover {
+        background-color:lighten($baseColor, 30%);
+        color:$fontColor;
+        }
+    }
+}
+@media (max-width: 750px) {
+      #blog{
+        margin: 30% auto;
+        padding: 80% 0;
+        .columns{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+          }
+          .columns-b-img{
+              order:1;
+          }
+          .columns-b-text{
+              order:2;
+          }
+     }
+}
+/*****************************************
+//about-page
+*****************************************/
+#about_header{
+    background-color:$baseColor;
+    width: 100%;
+    padding: 50px 0;
+}
+.about-heading{
+    color: $baseColor;
+    font-size: 6.0rem;
+    text-align: center;
+    line-height: 5rem;
+    margin: 10%;
+}
+#about_header_in{
+    .columns{
+        h1{
+        color: $fontColor;
+         font-size: 4.0rem;
+        }
+    }
+}
+.wrapper{
+    text-align: center;
+    margin: 7% 0;
+    .text{
+        display:block;
+        text-align:left;
+    }
+}
+#skills{
+        margin-bottom: 10%;
+    .row{
+        text-align:center;
+    }
+    .columns{
+        margin-left: 2.5%;
+    }
+    p{
+        margin: 2.5rem 2.5rem;
+        text-align: left;
+    }
+}
+
+/*****************************************
+//works-page
+*****************************************/
+//共通
+.text-wrapper{
+    width: 60%;
+    margin: 0 auto;
+    .text-heading{
+        display:block;
+        text-align:center;
+        margin: 10% auto;
+    }
+    .text{
+        display:block;
+        text-align:left;
+        }
+    }
+    .text-last{
+        display:block;
+        text-align:left;
+        margin: 0 0 10% 0;
+    }
+    
+
+//header
+#works_header{
+    background-color:$baseColor;
+    width: 100%;
+    padding: 50px 0;
+    .works-heading{
+        color:$keyColor;
+    }
+    .grobal-navi{
+        margin: 2.5rem 2.5rem;
+    }
+}
+
+#kazi-area .columns{
+    text-align: center;
+    .works-a-btn {
+    display: inline-block;
+    padding: 0.8em 2.3em;
+    text-decoration: none;
+    color:$fontColor;
+    background:$baseColor;
+    transition: .4s;
+    margin: 5% auto;
+        &:hover {
+        background-color:lighten($baseColor, 20%);
+        color:$fontColor;
+        }
+    }
+}
+
+//kazi
+#header_in .works-heading{
+    color:$fontColor;
+}
+
+#kazi-area {
+    .works-wrapper{
+        text-align:center;
+        .text{
+            display:block;
+            text-align:left;
+        }
+    }
+    h2{
+        text-align:center;
+        font-size: 2.4rem;
+        margin: 10% auto 0;
+    }
+    img{
+    display:block;
+    margin: 0 auto;
+    padding: 1% 0;
+    width: 60%;
+    }
+}
+
+
+//hika
+#hika-area{
+     h2{
+        text-align:center;
+        font-size: 2.4rem;
+        margin: 30% auto 0;
+    }
+    .hika-top{
+    display:block;
+    margin: 0 auto;
+    padding: 1% 0;
+    width: 60%;
+    }
+    .hika-left{
+            display:block;
+            margin: 0 auto;
+            width: 60%;
+            height: 40%;
+            padding: 1% 0;
+    }
+    .hika-right{
+            display:block;
+            margin: 0 auto;
+            width: 60%;
+            height: 40%;
+            padding: 1% 0;
+    }
+
+}
+
+#hitoyasumi-area {
+     h2{
+        text-align:center;
+        font-size: 2.4rem;
+        margin: 10% auto 0;
+    }
+    img{
+        width: 60%;
+    display:block;
+    margin: 0 auto;
+    padding: 1% 0;
+    }
+}
+/*****************************************
+//footer
+*****************************************/
+//footer
+
+footer{
+    background-color:$baseColor;
+}
+
+#footer-in {
+    .columns{
+        display:flex;
+        .f-icon{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .columns .right{
+            justify-content: end;
+        }
+    }
+}
+.f-navi-all{
+    display: flex;
+    padding: 55px 0;
+    justify-content: end;
+    .footer-navi{
+        display:flex;
+        align-items: center;
+        margin: 0;
+        width: 100%;
+        justify-content: flex-end;
+        .f-navi-item{
+            margin: 1rem;
+            list-style:none;
+            p{
+                margin: auto;
+            }
+            a{
+                color:$fontColor;
+            }
+
+        }
+    }
+}
+
+.about-f-navi-all{
+    display: flex;
+    height: 160px;
+    justify-content: end;
+    .about-footer-navi{
+        display:flex;
+        align-items: center;
+        margin: 0;
+        width: 100%;
+        justify-content: flex-end;
+        .about-f-navi-item{
+            list-style:none;
+            margin: 0 10px;
+            a{
+                color:$fontColor;
+                position: relative;
+                display: inline-block;
+          text-decoration: none;
+          color:$fontColor;
+        &::after {
+              position: absolute;
+              bottom: -4px;
+              left: 0;
+              content: '';
+              width: 100%;
+              height: 2px;
+              background: $fontColor;
+              transform: scale(0, 1);
+              transform-origin: center top;
+              transition: transform .3s;
+            }
+            &:hover{
+                color:lighten($fontColor,30%);
+            }
+            &:hover::after {
+              transform: scale(1, 1);
+            }
+        }
+            }
+        }
+    }
